@@ -1,0 +1,53 @@
+# authored by Sushant Bhat
+# method taken from [D_Israel]_Data_Analysis_in_Business_Research_A_S(BookZa.org)
+# verified with the table given in COCHRAN'S Q
+# description : this function takes data in matrix form and returns cochran's Q value
+# NOTE : input matrix should fields in zeros and ones only
+
+####################################### START #######################################
+
+def cochransQ(args) :
+
+    temp = []
+    for x in args :
+        if(sum(x)==len(x) or sum(x) == 0) :
+            continue
+        temp += [x]
+
+    #print(temp)
+    N = len(temp)
+    Li = []
+    Lisq = []
+
+    for i in range(N) :
+        sm = sum(temp[i])
+        Li += [sm]
+        Lisq += [sm*sm]
+
+    #print(Li)
+    Lisq_sum = sum(Lisq)
+    Li_sum = sum(Li)
+    #print(Li_sum , Lisq_sum)
+
+    Gi = []
+    Gisq = []
+    for j in range(len(temp[i])) :
+        sm = 0
+        for i in range(N) :
+            sm += temp[i][j]
+        Gi += [sm]
+        Gisq += [sm*sm]
+
+    Gi_sum = sum(Gi)
+    Gisq_sum = sum(Gisq)
+    #print(Gi_sum , Gisq_sum)
+
+    k = len(args[0])
+    Q = (k-1)*(k*Gisq_sum - Gi_sum*Gi_sum)/(k*Gi_sum - Lisq_sum)
+    Q = str(Q)
+    return Q
+
+k = [[1,1,1,0], [0,1,0,1] ,[1,0,0,0], [0,1,1,1],[1,0,1,1], [1,0,1,0], [1,1,1,1],[0,0,1,1],[1,0,0,0], [1,1,1,0],[0,0,1,0],[0,1,1,1], [1,0,0,1], [1,0,0,1], [0,0,1,0] ,[1,1,0,0], [1,1,1,1], [0,0,0,0],[1,0,1,0] ,[0,0,0,0]]
+#k = [[1,1,1],[2,2,2]]
+print (cochransQ(k))
+#answer in above example is 2.78

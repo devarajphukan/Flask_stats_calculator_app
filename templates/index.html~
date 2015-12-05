@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task</title>
+</head>
+<body style="width: 100%;">
+<h1>Please select a tool for the test</h1>
+<details>
+<summary>
+TOOLS (click here)
+</summary>
+<ul>
+	<li>
+		<a href="fishers.html">Fisher Exact Test</a>
+	</li>
+	<li>
+		<a href="cochrans.html">CochransQ</a>
+	</li>
+</ul>
+</details>
+</body>
+</html>

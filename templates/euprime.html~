@@ -1,0 +1,20 @@
+<title>
+	euprime assignment
+</title>
+
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/euprime.css') }}">
+</head>
+
+<nav id="top">
+  <ul>
+    <li> <a class="toplink" href="#">TOOLS</a>
+      <ul>
+        <li><a href="fishers.html">Fisher's Exact Test</a></li>
+        <li><a href="cochrans">CochransQ</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
