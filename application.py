@@ -15,7 +15,7 @@ def my_page2():
 
 @app.route('/cochrans', methods=['POST'])
 def cochransQ() :
-	
+
 	args = request.form['text1']
 	args = re.sub(r'\s+', '', args).split('],[')
 	temp_args = []
@@ -30,7 +30,6 @@ def cochransQ() :
 			continue
 		temp += [x]
 
-	#print(temp)
 	N = len(temp)
 	Li = []
 	Lisq = []
@@ -40,10 +39,8 @@ def cochransQ() :
 		Li += [sm]
 		Lisq += [sm*sm]
 
-	#print(Li)
 	Lisq_sum = sum(Lisq)
 	Li_sum = sum(Li)
-	#print(Li_sum , Lisq_sum)
 
 	Gi = []
 	Gisq = []
@@ -56,7 +53,6 @@ def cochransQ() :
 
 	Gi_sum = sum(Gi)
 	Gisq_sum = sum(Gisq)
-	#print(Gi_sum , Gisq_sum)
 
 	k = len(args[0])
 	Q = (k-1)*(k*Gisq_sum - Gi_sum*Gi_sum)/(k*Gi_sum - Lisq_sum)
